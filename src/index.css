@@ -1,0 +1,34 @@
+/* src/index.css */
+.wishlist-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    color: #333;
+  }
+  
+  .wishlist-item {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .wishlist-item.purchased {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  button {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #005bb5;
+  }

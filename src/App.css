@@ -1,0 +1,125 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.header {
+  background-color: #b41f15;
+  color: white;
+  padding: 5px;
+  margin-bottom: 30px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.246);
+}
+
+.wishlist-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.wishlist-item {
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wishlist-item h3 {
+  margin: 5px 0; /* Add spacing for item titles */
+}
+
+.wishlist-item a {
+  color: #15e823;
+  text-decoration: none;
+}
+
+.wishlist-item a:hover {
+  text-decoration: underline;
+}
+
+/* Styles for input fields */
+input {
+  margin: 10px 0; /* Space between input fields */
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px; /* Font size for input fields */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+input:focus {
+  border-color: #00ff51; /* Border color on focus */
+  box-shadow: 0 0 8px rgba(0, 255, 34, 0.5); /* Highlight effect */
+  outline: none; /* Remove default outline */
+}
+
+button {
+  margin: 10px 10; /* Space between buttons and other elements */
+  padding: 10px;
+  padding-left: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #31c71d;
+  color: white;
+  cursor: pointer;
+  font-size: 16px; /* Font size for buttons */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+  background-color: #0e6e2b; /* Darker shade on hover */
+}
+
+.wishlist-item input {
+  margin: 5px 0; /* Space between input fields in wishlist items */
+}
