@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
+import { useAuth } from '../firebase';
 import { db } from '../firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import WishlistItem from './WishlistItem';
 
 const ShareableLink = () => {
   const { listId } = useParams();
+  const user = useAuth();
   const [wishlist, setWishlist] = useState(null);
 
   useEffect(() => {
@@ -16,8 +18,15 @@ const ShareableLink = () => {
         setWishlist({ id: docSnap.id, ...docSnap.data() });
       }
     };
-    fetchWishlist();
-  }, [listId]);
+    if (user) {
+      fetchWishlist();
+    }
+  }, [listId, user]);
+
+  if (!user) {
+    // Redirect to the sign-in page if the user is not authenticated
+    return <Navigate to="/signin" replace />;
+  }
 
   const togglePurchased = async (itemIndex) => {
     const updatedItems = wishlist.items.map((item, index) =>
@@ -34,7 +43,9 @@ const ShareableLink = () => {
       {wishlist.items.map((item, index) => (
         <div key={index} className={`wishlist-item ${item.purchased ? 'purchased' : ''}`}>
           <p>Title: {item.title}</p>
-          <p>Link: <a href={item.link} target="_blank" rel="noopener noreferrer">{item.link}</a></p>
+          <p>
+            Link: <a href={item.link} target="_blank" rel="noopener noreferrer">Link</a>
+          </p>
           <p>Size: {item.size}</p>
           <p>Color: {item.color}</p>
           <p>Price: ${item.price}</p>
@@ -43,15 +54,17 @@ const ShareableLink = () => {
               src={item.imageUrl}
               alt={item.title}
               style={{
-                width: '100%', // Adjust the width to fit the container
-                maxHeight: '300px', // Limit the height to keep the layout neat
-                objectFit: 'contain', // Ensure the image maintains aspect ratio
+                width: '100%', 
+                maxHeight: '300px',
+                objectFit: 'contain',
                 borderRadius: '5px',
                 marginTop: '10px',
               }}
             />
           )}
-          <button onClick={() => togglePurchased(index)}>{item.purchased ? 'Purchased' : 'Mark as Purchased'}</button>
+          <button onClick={() => togglePurchased(index)}>
+            {item.purchased ? 'Purchased' : 'Mark as Purchased'}
+          </button>
         </div>
       ))}
     </div>

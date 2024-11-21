@@ -1,6 +1,6 @@
 {
-  "short_name": "Wishlist",
-  "name": "Create and share wishlists.",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
